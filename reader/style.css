@@ -1,0 +1,183 @@
+:root {
+  --font-body: 'Cormorant Garamond', serif;
+  --font-ui: 'Proza Libre', sans-serif;
+  --color-bg: #fdfbf7;
+  --color-text: #222;
+  --color-accent: #000;
+  --color-ui-bg: #ffffff;
+  --color-ui-border: #e0e0e0;
+  --spacing-unit: 1rem;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+aside {
+  width: 320px;
+  background: var(--color-ui-bg);
+  border-right: 1px solid var(--color-ui-border);
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+aside h1 {
+  font-family: var(--font-ui);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+aside h2 {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.chapter-list,
+.bookmark-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chapter-list li,
+.bookmark-list li {
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  color: #444;
+  transition: color 0.2s;
+}
+
+.chapter-list li:hover,
+.bookmark-list li:hover {
+  color: var(--color-accent);
+}
+
+.bookmark-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-bookmark {
+  color: #999;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.delete-bookmark:hover {
+  color: red;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 4rem 10%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+main h2 {
+  font-size: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+main h3 {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #666;
+}
+
+main p {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Formatting for the 'text feel' */
+main p:first-of-type::first-letter {
+  float: left;
+  font-size: 4rem;
+  line-height: 3.5rem;
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+/* Bookmarking Interaction */
+.bookmarkable {
+  cursor: text;
+}
+
+.bookmark-btn {
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-family: var(--font-ui);
+  font-size: 1.2rem;
+}
+
+main p:hover .bookmark-btn {
+  opacity: 0.5;
+}
+
+main p:hover .bookmark-btn:hover {
+  opacity: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
